@@ -1,18 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Plan & Run - Sharing</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan & Run - Sharing</title>
+    <script>
+        window.onload = function() {
+            // Получаем данные из текущего URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const data = urlParams.get('data');
+
+            if (data) {
+                // Формируем ссылку на кастомную схему
+                const appUrl = "shoppingplanner://share?data=" + data;
+                
+                // Пробуем мгновенно открыть приложение
+                window.location.href = appUrl;
+
+                // Если через 500мс приложение не открылось (не установлено),
+                // показываем кнопку или информацию.
+                setTimeout(function() {
+                    document.getElementById("status").style.display = "block";
+                }, 500);
+            }
+        };
+    </script>
     <style>
-        body { font-family: -apple-system, sans-serif; text-align: center; padding: 50px; }
-        .button { background: #007AFF; color: white; padding: 15px 25px; border-radius: 10px; text-decoration: none; }
+        body { font-family: sans-serif; text-align: center; padding: 50px; }
+        .btn { display: inline-block; padding: 15px 30px; background: #007AFF; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; margin-top: 20px; }
+        #status { display: none; }
     </style>
 </head>
 <body>
     <h1>Plan & Run</h1>
-    <p>Нажмите кнопку ниже, если приложение не открылось автоматически.</p>
-    <br>
-    <a href="shoppingplanner://share" class="button">Открыть в приложении</a>
+    <div id="status">
+        <p>Если приложение не открылось автоматически, нажмите кнопку ниже:</p>
+        <a id="retryBtn" href="#" class="btn">Открыть в приложении</a>
+    </div>
+
+    <script>
+        // Обновляем ссылку на кнопке, если авто-переход не сработал
+        const urlParams = new URLSearchParams(window.location.search);
+        const data = urlParams.get('data');
+        if (data) {
+            document.getElementById("retryBtn").href = "shoppingplanner://share?data=" + data;
+        }
+    </script>
 </body>
 </html>
