@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "org.lexshi.shoppingplanner",
+      "sha256_cert_fingerprints": ["16:E2:10:F9:65:1C:D0:F9:E8:2E:52:EC:39:5A:AE:B4:19:EF:49:E7:47:05:1F:35:93:9F:6F:F7:28:57:5C:7B"]
+    }
+  }
+]
