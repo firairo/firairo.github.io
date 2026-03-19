@@ -1,9 +1,8 @@
-{
-  "applinks": {
+{  "applinks": {
     "apps": [],
     "details": [
       {
-        "appID": "UZ8YL82595.org.lexshi.shoppingplanner",
+        "appID": "UZ8YL82595.org.lexshi.shoppingplanner.iosApp",
         "paths": ["/share*"]
       }
     ]
